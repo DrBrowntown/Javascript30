@@ -29,7 +29,9 @@ function paintToCanvas() {
         // mess with them
         // pixels = redEffect(pixels);
 
-        pixels = rgbSplit(pixels);
+        // pixels = rgbSplit(pixels);
+
+        pixels = greenScreen(pixels);
         // put them back
         ctx.putImageData(pixels, 0, 0);
 
@@ -81,6 +83,7 @@ function greenScreen(pixels) {
     alpha = pixels.data[i + 3];
 
     if (red >= levels.rmin
+    // If any of the pixels are in between the min and max values
       && green >= levels.gmin
       && blue >= levels.bmin
       && red <= levels.rmax
