@@ -54,7 +54,21 @@
   </div>
 
 <script>
+  const nav = document.querySelector('#main');
+  const topOfNav = nav.offsetTop;
 
+
+  function fixNav(e) {
+    if(window.scrollY >= topOfNav) {
+      // remove screen jump when page scrolls and class changes to fix
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+      document.body.classList.add('fixed-nav');
+    } else {
+      document.body.classList.remove('fixed-nav');
+    }
+  }
+
+  window.addEventListener('scroll', fixNav);
 </script>
 
 </body>
