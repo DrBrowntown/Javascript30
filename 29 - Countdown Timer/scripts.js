@@ -4,7 +4,7 @@ function timer(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
     displayTimeLeft(seconds);
-    
+
     countdown = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         // check if we should stop it
@@ -18,5 +18,7 @@ function timer(seconds) {
 }
 
 function displayTimeLeft(seconds) {
-    console.log(seconds);
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
+    console.log({minutes, remainderSeconds});
 }
